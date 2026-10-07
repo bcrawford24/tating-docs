@@ -12,6 +12,9 @@ const config = {
 
   future: {
     v4: true,
+    // The SWC/Rspack 'faster' toolchain refuses Windows cache folders whose ACLs it
+    // doesn't trust; webpack + babel builds identically everywhere, so keep it off.
+    faster: false,
   },
 
   url: 'https://bcrawford24.github.io',
