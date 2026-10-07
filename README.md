@@ -1,43 +1,32 @@
-# Website
+# Tating Docs
 
-This website is built using [Docusaurus](https://docusaurus.io/), a modern static website generator.
+User documentation for [Tating](https://play.google.com/store/apps/details?id=com.tating.app), a drum notation editor for iOS and Android.
 
-## Installation
+**Published at [bcrawford24.github.io/tating-docs](https://bcrawford24.github.io/tating-docs/).**
 
-```bash
-npm install
-```
+## How it's built
 
-**Note**: feel free to use the package manager of your choice.
+- **[Docusaurus](https://docusaurus.io/)** in docs-only mode: every page is a Markdown file in [`docs/`](docs/), and [`sidebars.js`](sidebars.js) sets the order.
+- **GitHub Pages**, published by [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml) on every push to `main`.
+- **Pull requests are checked first.** The same workflow builds every pull request, and the build fails on any broken link, so a bad page can't reach the published site.
 
-## Local Development
+## Where the words come from
 
-```bash
-npm run start
-```
+The app's own repository is private. This site is the user-facing slice of it:
 
-This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
+| Page | Source |
+|---|---|
+| Guide pages | The live store description, regrouped by task |
+| Accessibility | The app repo's accessibility checklist, restated for users |
+| Release notes | The store text published with each release, verbatim |
+| Privacy policy | [bcrawford24/tating-privacy](https://github.com/bcrawford24/tating-privacy), the URL the stores link to |
 
-## Build
-
-```bash
-npm run build
-```
-
-This command generates static content into the `build` directory and can be served using any static contents hosting service.
-
-## Deployment
-
-Using SSH:
+## Working on it
 
 ```bash
-USE_SSH=true npm run deploy
+npm ci
+npm start          # live preview at http://localhost:3000/tating-docs/
+npm run build      # the same check a pull request runs
 ```
 
-Not using SSH:
-
-```bash
-GIT_USER=<Your GitHub username> npm run deploy
-```
-
-If you are using GitHub Pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
+© Robert Benjamin Crawford. All rights reserved.
